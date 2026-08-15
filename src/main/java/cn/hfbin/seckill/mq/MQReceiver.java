@@ -3,6 +3,7 @@ package cn.hfbin.seckill.mq;
 import cn.hfbin.seckill.bo.GoodsBo;
 import cn.hfbin.seckill.entity.SeckillOrder;
 import cn.hfbin.seckill.entity.User;
+import cn.hfbin.seckill.redis.GoodsKey;
 import cn.hfbin.seckill.redis.RedisService;
 import cn.hfbin.seckill.service.OrderService;
 import cn.hfbin.seckill.service.SeckillGoodsService;
@@ -37,7 +38,6 @@ public class MQReceiver {
         SeckillMessage mm = RedisService.stringToBean(message, SeckillMessage.class);
         User user = mm.getUser();
         long goodsId = mm.getGoodsId();
-
         GoodsBo goods = goodsService.getseckillGoodsBoByGoodsId(goodsId);
         int stock = goods.getStockCount();
         if (stock <= 0) {

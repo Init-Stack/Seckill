@@ -17,6 +17,7 @@ public class MQSender {
     AmqpTemplate amqpTemplate;
 
     public void sendSeckillMessage(SeckillMessage mm) {
+        //序列化
         String msg = RedisService.beanToString(mm);
         log.info("send message:" + msg);
         amqpTemplate.convertAndSend(MQConfig.MIAOSHA_QUEUE, msg);

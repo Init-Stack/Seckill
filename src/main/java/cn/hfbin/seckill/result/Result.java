@@ -1,5 +1,7 @@
 package cn.hfbin.seckill.result;
 
+import lombok.Data;
+
 /**
  * My Blog : www.hfbin.cn
  * github: https://github.com/hfbin
@@ -8,6 +10,7 @@ package cn.hfbin.seckill.result;
  * Time: 12:00
  * Such description:
  */
+@Data
 public class Result<T> {
 
 	private int code;
